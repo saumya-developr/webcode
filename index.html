@@ -1,21 +1,616 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saumya Portfolio</title>
-    <link rel="stylesheet" href="portf.css">
-    <meta name="google-site-verification" content="npMoINCANslfNny-efK6KDJvhLZrmqGYN6weu78X5pA" />
-</head>
-<body>
-   <div id="flex">
-    <div  id="imgdiv"><img src="./img/saumya.jpg " width="150px" height="150px" alt="saumyapic" id="imgy" /></div>
-    <div id="content">  <p class="paraa">HELLO THERE!</p>
-       Its saumya mishra , a class 11th pcm student with CS major    </div>
-   </div>
-   <div class="centor"><div class="container">
-    <p>click here to know more about me</p>
-    <a href="./base.html"><button>ENTER</button></a>
-   </div></div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Saumya | Polytechnic Student</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #fafafa;
+        color: #171717;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* ---------- NAVBAR ---------- */
+
+      nav {
+        width: 100%;
+        padding: 22px 7%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .logo {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: -1px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+        font-size: 14px;
+      }
+
+      .nav-links a {
+        color: #555;
+        transition: 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: #000;
+      }
+
+      /* ---------- HERO ---------- */
+
+      .hero {
+        min-height: 100vh;
+        padding: 160px 7% 100px;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-content {
+        max-width: 800px;
+      }
+
+      .small-text {
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 20px;
+      }
+
+      .hero h1 {
+        font-size: clamp(55px, 9vw, 110px);
+        line-height: 0.95;
+        letter-spacing: -6px;
+        font-weight: 700;
+        margin-bottom: 30px;
+      }
+
+      .hero h1 span {
+        color: #888;
+      }
+
+      .hero-description {
+        max-width: 580px;
+        font-size: 19px;
+        color: #555;
+        margin-bottom: 35px;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 12px 22px;
+        border: 1px solid #171717;
+        border-radius: 30px;
+        font-size: 14px;
+        transition: 0.25s;
+      }
+
+      .button:hover {
+        background: #171717;
+        color: white;
+      }
+
+      /* ---------- SECTIONS ---------- */
+
+      section {
+        padding: 110px 7%;
+        border-top: 1px solid #e5e5e5;
+      }
+
+      .section-label {
+        font-size: 13px;
+        color: #888;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 35px;
+      }
+
+      .section-title {
+        font-size: clamp(35px, 5vw, 65px);
+        line-height: 1;
+        letter-spacing: -3px;
+        margin-bottom: 45px;
+      }
+
+      /* ---------- ABOUT ---------- */
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 80px;
+        max-width: 1100px;
+      }
+
+      .about-text {
+        font-size: 19px;
+        color: #555;
+        max-width: 650px;
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+      }
+
+      /* ---------- EDUCATION ---------- */
+
+      .education {
+        max-width: 900px;
+      }
+
+      .education-item {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 30px;
+        padding: 28px 0;
+        border-top: 1px solid #ddd;
+      }
+
+      .education-item:last-child {
+        border-bottom: 1px solid #ddd;
+      }
+
+      .year {
+        color: #888;
+        font-size: 14px;
+      }
+
+      .education-item h3 {
+        font-size: 21px;
+        margin-bottom: 5px;
+      }
+
+      .education-item p {
+        color: #666;
+        font-size: 15px;
+      }
+
+      /* ---------- SKILLS ---------- */
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1000px;
+        border-top: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+      }
+
+      .skill {
+        padding: 35px;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .skill-number {
+        color: #999;
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .skill h3 {
+        font-size: 22px;
+        margin-bottom: 8px;
+      }
+
+      .skill p {
+        color: #666;
+        font-size: 14px;
+      }
+
+      /* ---------- PROJECTS ---------- */
+
+      .projects {
+        max-width: 1100px;
+      }
+
+      .project {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        padding: 30px 0;
+        border-top: 1px solid #ddd;
+      }
+
+      .project:last-child {
+        border-bottom: 1px solid #ddd;
+      }
+
+      .project-number {
+        color: #999;
+        font-size: 13px;
+        min-width: 35px;
+      }
+
+      .project-info {
+        flex: 1;
+      }
+
+      .project h3 {
+        font-size: 23px;
+        margin-bottom: 5px;
+      }
+
+      .project p {
+        color: #666;
+        font-size: 14px;
+      }
+
+      .project-arrow {
+        font-size: 25px;
+      }
+
+      /* ---------- CONTACT ---------- */
+
+      .contact {
+        min-height: 65vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .contact h2 {
+        font-size: clamp(45px, 7vw, 90px);
+        line-height: 0.95;
+        letter-spacing: -5px;
+        max-width: 800px;
+        margin-bottom: 35px;
+      }
+
+      .contact p {
+        color: #666;
+        margin-bottom: 25px;
+      }
+
+      .socials {
+        display: flex;
+        gap: 25px;
+        font-size: 14px;
+      }
+
+      .socials a {
+        border-bottom: 1px solid #999;
+        padding-bottom: 3px;
+      }
+
+      /* ---------- FOOTER ---------- */
+
+      footer {
+        padding: 25px 7%;
+        border-top: 1px solid #ddd;
+        display: flex;
+        justify-content: space-between;
+        color: #888;
+        font-size: 13px;
+      }
+
+      /* ---------- RESPONSIVE ---------- */
+
+      @media (max-width: 700px) {
+        nav {
+          padding: 20px 6%;
+        }
+
+        .nav-links {
+          gap: 15px;
+        }
+
+        .hero {
+          padding: 140px 6% 80px;
+        }
+
+        .hero h1 {
+          letter-spacing: -4px;
+        }
+
+        section {
+          padding: 80px 6%;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .education-item {
+          grid-template-columns: 1fr;
+          gap: 5px;
+        }
+
+        .project {
+          align-items: flex-start;
+        }
+
+        .contact h2 {
+          letter-spacing: -3px;
+        }
+
+        footer {
+          padding: 20px 6%;
+          flex-direction: column;
+          gap: 5px;
+        }
+      }
+      .hero-layout {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 70px;
+        max-width: 1100px;
+      }
+
+      .hero-text {
+        flex: 1;
+      }
+
+   .profile-photo {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #eee;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: grayscale(100%);
+  transition: 0.4s ease;
+}
+
+.profile-photo img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.04);
+}
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVIGATION -->
+
+    <nav>
+      <div class="logo">Saumya.</div>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <div class="small-text">01 / Polytechnic Student</div>
+
+          <div class="hero-layout">
+            <div class="hero-text">
+              <h1>
+                Hi, I'm<br />
+                Saumya<span>.</span>
+              </h1>
+
+              <p class="hero-description">
+                A first-semester Polytechnic student exploring programming,
+                technology and the world of computer science.
+              </p>
+
+              <a href="#about" class="button"> Explore my journey ↓ </a>
+            </div>
+
+            <div class="profile-photo">
+              <img src="assets/saumya.jpg" alt="Saumya" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+
+      <section id="about">
+        <div class="section-label">02 / About Me</div>
+
+        <div class="about-grid">
+          <div>
+            <h2 class="section-title">Just<br />getting started.</h2>
+          </div>
+
+          <div class="about-text">
+            <p>
+              I'm Saumya, a first-semester Polytechnic student with an interest
+              in computers and technology.
+            </p>
+
+            <p>
+              I'm currently learning the fundamentals of programming, web
+              development and computer science.
+            </p>
+
+            <p>
+              I believe that good developers are built one concept, one
+              experiment and one project at a time.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+
+      <section>
+        <div class="section-label">03 / Education</div>
+
+        <h2 class="section-title">My beginning.</h2>
+
+        <div class="education">
+          <div class="education-item">
+            <div class="year">2026 — Present</div>
+
+            <div>
+              <h3>Diploma in Polytechnic</h3>
+              <p>
+                Currently studying and building fundamentals in computer science
+                and technology.
+              </p>
+            </div>
+          </div>
+
+          <div class="education-item">
+            <div class="year">Semester 01</div>
+
+            <div>
+              <h3>Learning the Basics</h3>
+              <p>
+                Programming fundamentals, computer concepts, mathematics and
+                introductory web technologies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+
+      <section id="skills">
+        <div class="section-label">04 / Skills</div>
+
+        <h2 class="section-title">What I'm<br />learning.</h2>
+
+        <div class="skills-grid">
+          <div class="skill">
+            <div class="skill-number">01</div>
+            <h3>HTML & CSS</h3>
+            <p>Learning how websites are structured and styled.</p>
+          </div>
+
+          <div class="skill">
+            <div class="skill-number">02</div>
+            <h3>Python</h3>
+            <p>Exploring programming logic, variables, loops and functions.</p>
+          </div>
+
+          <div class="skill">
+            <div class="skill-number">03</div>
+            <h3>C Programming</h3>
+            <p>Understanding programming fundamentals through C.</p>
+          </div>
+
+          <div class="skill">
+            <div class="skill-number">04</div>
+            <h3>Git & GitHub</h3>
+            <p>Learning how developers manage and share their code.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+
+      <section id="projects">
+        <div class="section-label">05 / Projects</div>
+
+        <h2 class="section-title">Small steps.<br />Real projects.</h2>
+
+        <div class="projects">
+          <div class="project">
+            <div class="project-number">01</div>
+
+            <div class="project-info">
+              <h3>Simple Calculator</h3>
+              <p>
+                A beginner calculator created while learning basic programming
+                concepts.
+              </p>
+            </div>
+
+            <div class="project-arrow">↗</div>
+          </div>
+
+          <div class="project">
+            <div class="project-number">02</div>
+
+            <div class="project-info">
+              <h3>My First Webpage</h3>
+              <p>A simple webpage created using HTML and CSS.</p>
+            </div>
+
+            <div class="project-arrow">↗</div>
+          </div>
+
+          <div class="project">
+            <div class="project-number">03</div>
+
+            <div class="project-info">
+              <h3>Programming Practice</h3>
+              <p>
+                Collection of beginner programs, patterns and logic-building
+                exercises.
+              </p>
+            </div>
+
+            <div class="project-arrow">↗</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+
+      <section class="contact">
+        <div class="section-label">06 / Contact</div>
+
+        <h2>Let's learn<br />something new.</h2>
+
+        <p>
+          I'm always open to learning, collaborating and discovering new things.
+        </p>
+
+        <div class="socials">
+          <a href="#" target="_blank"> GitHub ↗ </a>
+
+          <a href="mailto:your-email@example.com"> Email ↗ </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+      <span>Saumya.</span>
+
+      <span> First Semester · Polytechnic </span>
+    </footer>
+  </body>
 </html>
