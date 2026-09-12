@@ -669,59 +669,59 @@
    EDUCATION PAGE TRANSITION
 ========================= */
 
-.page-transition {
-  position: fixed;
-  inset: 0;
-  background: #faf9f6;
-  z-index: 99999;
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(15px);
-}
+      .page-transition {
+        position: fixed;
+        inset: 0;
+        background: #faf9f6;
+        z-index: 99999;
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(15px);
+      }
 
-.page-transition.active {
-  opacity: 1;
-  visibility: visible;
-  animation: pageEnter 0.65s ease forwards;
-}
+      .page-transition.active {
+        opacity: 1;
+        visibility: visible;
+        animation: pageEnter 0.65s ease forwards;
+      }
 
-@keyframes pageEnter {
-  0% {
-    opacity: 0;
-    transform: translateY(15px);
-  }
+      @keyframes pageEnter {
+        0% {
+          opacity: 0;
+          transform: translateY(15px);
+        }
 
-  45% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+        45% {
+          opacity: 1;
+          transform: translateY(0);
+        }
 
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     </style>
   </head>
-<script>
-  const timelineLink = document.querySelector(".timeline-link");
-  const transition = document.querySelector(".page-transition");
+  <script>
+    const timelineLink = document.querySelector(".timeline-link");
+    const transition = document.querySelector(".page-transition");
 
-  if (timelineLink) {
-    timelineLink.addEventListener("click", function (event) {
-      event.preventDefault();
+    if (timelineLink) {
+      timelineLink.addEventListener("click", function (event) {
+        event.preventDefault();
 
-      const destination = this.href;
+        const destination = this.href;
 
-      transition.classList.add("active");
+        transition.classList.add("active");
 
-      setTimeout(() => {
-        window.location.href = destination;
-      }, 450);
-    });
-  }
-</script>
+        setTimeout(() => {
+          window.location.href = destination;
+        }, 450);
+      });
+    }
+  </script>
   <body>
     <div class="page-transition"></div>
     <!-- =========================
@@ -855,10 +855,10 @@
             </div>
           </div>
         </div>
-    <a href="education-timeline.html" class="button timeline-link">
-  View my full education journey →
-</a>
-    </section>
+        <a href="education-timeline.html" class="button timeline-link">
+          View my full education journey →
+        </a>
+      </section>
 
       <!-- SKILLS -->
 
@@ -928,7 +928,10 @@
               </p>
             </div>
 
-            <div class="project-arrow">↗</div>
+            <a href="https://saumya-developr.github.io/simple-calculator/"
+              ><div class="project-arrow"></div>
+              ↗</a
+            >
           </div>
 
           <div class="project">
@@ -940,7 +943,10 @@
               <p>A simple webpage created using HTML and CSS.</p>
             </div>
 
-            <div class="project-arrow">↗</div>
+            <a href="webcode-ashen.vercel.app"
+              ><div class="project-arrow"></div>
+              ↗</a
+            >
           </div>
 
           <div class="project">
@@ -952,7 +958,10 @@
               <p>Beginner programs, patterns and logic-building exercises.</p>
             </div>
 
-            <div class="project-arrow">↗</div>
+            <a href="https://github.com/saumya-developr/Pycode"
+              ><div class="project-arrow"></div>
+              ↗</a
+            >
           </div>
         </div>
       </section>
