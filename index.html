@@ -7,6 +7,10 @@
     <title>Saumya | Polytechnic Student</title>
 
     <style>
+      /* =========================
+       BASIC RESET
+    ========================= */
+
       * {
         margin: 0;
         padding: 0;
@@ -19,9 +23,10 @@
 
       body {
         font-family: Arial, Helvetica, sans-serif;
-        background: #fafafa;
-        color: #171717;
+        background: #faf9f6;
+        color: #181818;
         line-height: 1.6;
+        overflow-x: hidden;
       }
 
       a {
@@ -29,7 +34,56 @@
         text-decoration: none;
       }
 
-      /* ---------- NAVBAR ---------- */
+      /* =========================
+       STARTUP ANIMATION
+    ========================= */
+
+      .loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: #181818;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: loaderOut 0.7s ease 1.5s forwards;
+      }
+
+      .loader-text {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: -1px;
+        animation: textIn 0.8s ease forwards;
+      }
+
+      .loader-text span {
+        color: #f2a65a;
+      }
+
+      @keyframes textIn {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes loaderOut {
+        to {
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+        }
+      }
+
+      /* =========================
+       NAVIGATION
+    ========================= */
 
       nav {
         width: 100%;
@@ -40,12 +94,17 @@
         position: absolute;
         top: 0;
         left: 0;
+        z-index: 10;
       }
 
       .logo {
         font-size: 22px;
         font-weight: 700;
         letter-spacing: -1px;
+      }
+
+      .logo span {
+        color: #e8894f;
       }
 
       .nav-links {
@@ -56,100 +115,157 @@
       }
 
       .nav-links a {
-        color: #555;
+        color: #666;
         transition: 0.2s;
       }
 
       .nav-links a:hover {
-        color: #000;
+        color: #e8894f;
       }
 
-      /* ---------- HERO ---------- */
+      /* =========================
+       HERO
+    ========================= */
 
       .hero {
         min-height: 100vh;
-        padding: 160px 7% 100px;
+        padding: 150px 7% 90px;
         display: flex;
         align-items: center;
+        background: radial-gradient(
+          circle at 85% 45%,
+          rgba(242, 166, 90, 0.15),
+          transparent 25%
+        );
       }
 
       .hero-content {
-        max-width: 800px;
+        width: 100%;
+        max-width: 1150px;
+        margin: auto;
       }
 
       .small-text {
-        font-size: 14px;
-        color: #777;
-        margin-bottom: 20px;
+        font-size: 13px;
+        color: #888;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .hero-layout {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 70px;
+      }
+
+      .hero-text {
+        flex: 1;
       }
 
       .hero h1 {
-        font-size: clamp(55px, 9vw, 110px);
-        line-height: 0.95;
+        font-size: clamp(55px, 9vw, 105px);
+        line-height: 0.93;
         letter-spacing: -6px;
         font-weight: 700;
         margin-bottom: 30px;
       }
 
       .hero h1 span {
-        color: #888;
+        color: #e8894f;
       }
 
       .hero-description {
-        max-width: 580px;
-        font-size: 19px;
-        color: #555;
-        margin-bottom: 35px;
+        max-width: 570px;
+        font-size: 18px;
+        color: #5f5f5f;
+        margin-bottom: 32px;
       }
 
       .button {
         display: inline-block;
-        padding: 12px 22px;
-        border: 1px solid #171717;
+        padding: 12px 21px;
+        border: 1px solid #222;
         border-radius: 30px;
         font-size: 14px;
         transition: 0.25s;
       }
 
       .button:hover {
-        background: #171717;
-        color: white;
+        background: #e8894f;
+        border-color: #e8894f;
+        color: #fff;
       }
 
-      /* ---------- SECTIONS ---------- */
+      /* =========================
+       PROFILE PHOTO
+    ========================= */
 
-      section {
-        padding: 110px 7%;
-        border-top: 1px solid #e5e5e5;
+      .profile-photo {
+        width: 310px;
+        height: 310px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+        border: 7px solid #fff;
+        box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+        background: #eee;
+      }
+
+      .profile-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        transition: 0.4s ease;
+      }
+
+      .profile-photo:hover img {
+        transform: scale(1.04);
+      }
+
+      /* =========================
+       SECTIONS
+    ========================= */
+
+      section:not(.hero) {
+        padding: 105px 7%;
+        border-top: 1px solid #e5e1db;
       }
 
       .section-label {
         font-size: 13px;
-        color: #888;
+        color: #e8894f;
         text-transform: uppercase;
         letter-spacing: 1px;
-        margin-bottom: 35px;
+        margin-bottom: 30px;
+        font-weight: 600;
       }
 
       .section-title {
-        font-size: clamp(35px, 5vw, 65px);
+        font-size: clamp(38px, 5vw, 65px);
         line-height: 1;
         letter-spacing: -3px;
         margin-bottom: 45px;
       }
 
-      /* ---------- ABOUT ---------- */
+      /* =========================
+       ABOUT
+    ========================= */
 
       .about-grid {
         display: grid;
         grid-template-columns: 1fr 1.5fr;
         gap: 80px;
         max-width: 1100px;
+        margin: auto;
       }
 
       .about-text {
-        font-size: 19px;
-        color: #555;
+        font-size: 18px;
+        color: #5f5f5f;
         max-width: 650px;
       }
 
@@ -157,10 +273,18 @@
         margin-bottom: 20px;
       }
 
-      /* ---------- EDUCATION ---------- */
+      .highlight {
+        color: #e8894f;
+        font-weight: 600;
+      }
+
+      /* =========================
+       EDUCATION
+    ========================= */
 
       .education {
         max-width: 900px;
+        margin: auto;
       }
 
       .education-item {
@@ -168,15 +292,15 @@
         grid-template-columns: 150px 1fr;
         gap: 30px;
         padding: 28px 0;
-        border-top: 1px solid #ddd;
+        border-top: 1px solid #ddd8d0;
       }
 
       .education-item:last-child {
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #ddd8d0;
       }
 
       .year {
-        color: #888;
+        color: #e8894f;
         font-size: 14px;
       }
 
@@ -190,30 +314,38 @@
         font-size: 15px;
       }
 
-      /* ---------- SKILLS ---------- */
+      /* =========================
+       SKILLS
+    ========================= */
 
       .skills-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         max-width: 1000px;
-        border-top: 1px solid #ddd;
-        border-left: 1px solid #ddd;
+        margin: auto;
+        border-top: 1px solid #ddd8d0;
+        border-left: 1px solid #ddd8d0;
       }
 
       .skill {
         padding: 35px;
-        border-right: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
+        border-right: 1px solid #ddd8d0;
+        border-bottom: 1px solid #ddd8d0;
+        transition: 0.25s;
+      }
+
+      .skill:hover {
+        background: #fff;
       }
 
       .skill-number {
-        color: #999;
+        color: #e8894f;
         font-size: 13px;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
       }
 
       .skill h3 {
-        font-size: 22px;
+        font-size: 21px;
         margin-bottom: 8px;
       }
 
@@ -222,10 +354,13 @@
         font-size: 14px;
       }
 
-      /* ---------- PROJECTS ---------- */
+      /* =========================
+       PROJECTS
+    ========================= */
 
       .projects {
         max-width: 1100px;
+        margin: auto;
       }
 
       .project {
@@ -234,15 +369,15 @@
         align-items: center;
         gap: 30px;
         padding: 30px 0;
-        border-top: 1px solid #ddd;
+        border-top: 1px solid #ddd8d0;
       }
 
       .project:last-child {
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #ddd8d0;
       }
 
       .project-number {
-        color: #999;
+        color: #e8894f;
         font-size: 13px;
         min-width: 35px;
       }
@@ -252,7 +387,7 @@
       }
 
       .project h3 {
-        font-size: 23px;
+        font-size: 22px;
         margin-bottom: 5px;
       }
 
@@ -262,16 +397,26 @@
       }
 
       .project-arrow {
-        font-size: 25px;
+        font-size: 24px;
+        transition: 0.2s;
       }
 
-      /* ---------- CONTACT ---------- */
+      .project:hover .project-arrow {
+        color: #e8894f;
+        transform: translate(4px, -4px);
+      }
+
+      /* =========================
+       CONTACT
+    ========================= */
 
       .contact {
         min-height: 65vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        max-width: 1200px;
+        margin: auto;
       }
 
       .contact h2 {
@@ -279,7 +424,7 @@
         line-height: 0.95;
         letter-spacing: -5px;
         max-width: 800px;
-        margin-bottom: 35px;
+        margin-bottom: 30px;
       }
 
       .contact p {
@@ -294,126 +439,273 @@
       }
 
       .socials a {
-        border-bottom: 1px solid #999;
+        border-bottom: 1px solid #aaa;
         padding-bottom: 3px;
+        transition: 0.2s;
       }
 
-      /* ---------- FOOTER ---------- */
+      .socials a:hover {
+        color: #e8894f;
+        border-color: #e8894f;
+      }
+
+      /* =========================
+       FOOTER
+    ========================= */
 
       footer {
         padding: 25px 7%;
-        border-top: 1px solid #ddd;
+        border-top: 1px solid #ddd8d0;
         display: flex;
         justify-content: space-between;
         color: #888;
         font-size: 13px;
       }
 
-      /* ---------- RESPONSIVE ---------- */
+      /* =========================
+       TABLET
+    ========================= */
 
-      @media (max-width: 700px) {
-        nav {
-          padding: 20px 6%;
+      @media (max-width: 900px) {
+        .hero-layout {
+          gap: 40px;
         }
 
-        .nav-links {
-          gap: 15px;
-        }
-
-        .hero {
-          padding: 140px 6% 80px;
+        .profile-photo {
+          width: 250px;
+          height: 250px;
         }
 
         .hero h1 {
           letter-spacing: -4px;
         }
 
-        section {
-          padding: 80px 6%;
+        .about-grid {
+          gap: 40px;
         }
+      }
+
+      /* =========================
+       MOBILE
+    ========================= */
+
+      @media (max-width: 700px) {
+        nav {
+          padding: 20px 6%;
+          position: absolute;
+        }
+
+        .logo {
+          font-size: 20px;
+        }
+
+        .nav-links {
+          gap: 13px;
+          font-size: 12px;
+        }
+
+        .hero {
+          min-height: auto;
+          padding: 130px 6% 80px;
+        }
+
+        .hero-layout {
+          flex-direction: column-reverse;
+          align-items: flex-start;
+          gap: 40px;
+        }
+
+        .profile-photo {
+          width: 210px;
+          height: 210px;
+          border-width: 5px;
+          align-self: center;
+        }
+
+        .small-text {
+          margin-bottom: 22px;
+        }
+
+        .hero h1 {
+          font-size: clamp(52px, 17vw, 75px);
+          letter-spacing: -4px;
+          margin-bottom: 24px;
+        }
+
+        .hero-description {
+          font-size: 16px;
+          line-height: 1.7;
+        }
+
+        .button {
+          padding: 11px 18px;
+        }
+
+        section:not(.hero) {
+          padding: 75px 6%;
+        }
+
+        .section-title {
+          font-size: 43px;
+          letter-spacing: -2px;
+          margin-bottom: 32px;
+        }
+
+        /* About */
 
         .about-grid {
           grid-template-columns: 1fr;
-          gap: 20px;
+          gap: 10px;
         }
+
+        .about-text {
+          font-size: 16px;
+        }
+
+        /* Education */
+
+        .education-item {
+          grid-template-columns: 1fr;
+          gap: 6px;
+          padding: 23px 0;
+        }
+
+        /* Skills */
 
         .skills-grid {
           grid-template-columns: 1fr;
         }
 
-        .education-item {
-          grid-template-columns: 1fr;
-          gap: 5px;
+        .skill {
+          padding: 28px;
         }
 
+        /* Projects */
+
         .project {
+          gap: 15px;
           align-items: flex-start;
         }
 
+        .project h3 {
+          font-size: 18px;
+        }
+
+        .project p {
+          font-size: 13px;
+        }
+
+        .project-arrow {
+          font-size: 20px;
+        }
+
+        /* Contact */
+
+        .contact {
+          min-height: 55vh;
+        }
+
         .contact h2 {
+          font-size: 52px;
           letter-spacing: -3px;
         }
+
+        .socials {
+          gap: 18px;
+        }
+
+        /* Footer */
 
         footer {
           padding: 20px 6%;
           flex-direction: column;
-          gap: 5px;
+          gap: 6px;
         }
       }
-      .hero-layout {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 70px;
-        max-width: 1100px;
+
+      /* =========================
+       VERY SMALL PHONES
+    ========================= */
+
+      @media (max-width: 380px) {
+        .nav-links {
+          gap: 9px;
+          font-size: 11px;
+        }
+
+        .profile-photo {
+          width: 180px;
+          height: 180px;
+        }
+
+        .hero h1 {
+          font-size: 51px;
+        }
+
+        .contact h2 {
+          font-size: 45px;
+        }
       }
 
-      .hero-text {
-        flex: 1;
-      }
+      /* =========================
+       REDUCED MOTION
+    ========================= */
 
-      .profile-photo {
-        width: 320px;
-        height: 320px;
-        border-radius: 50%;
-        overflow: hidden;
-        flex-shrink: 0;
-        background: #eee;
-      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
 
-      .profile-photo img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        display: block;
-        filter: grayscale(100%);
-        transition: 0.4s ease;
-      }
+        .loader {
+          animation: none;
+          display: none;
+        }
 
-      .profile-photo img:hover {
-        filter: grayscale(0%);
-        transform: scale(1.04);
+        * {
+          transition: none !important;
+        }
       }
     </style>
   </head>
 
   <body>
-    <!-- NAVIGATION -->
+    <!-- =========================
+       STARTUP SCREEN
+  ========================= -->
+
+    <div class="loader">
+      <div class="loader-text">Saumya<span>.</span></div>
+    </div>
+
+    <!-- =========================
+       NAVIGATION
+  ========================= -->
 
     <nav>
-      <div class="logo">Saumya.</div>
+      <div class="logo">Saumya<span>.</span></div>
 
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li>
+          <a href="#about">About</a>
+        </li>
+
+        <li>
+          <a href="#skills">Skills</a>
+        </li>
+
+        <li>
+          <a href="#projects">Projects</a>
+        </li>
       </ul>
     </nav>
 
-    <!-- HERO -->
+    <!-- =========================
+       MAIN
+  ========================= -->
 
     <main>
+      <!-- HERO -->
+
       <section class="hero">
         <div class="hero-content">
           <div class="small-text">01 / Polytechnic Student</div>
@@ -433,6 +725,8 @@
               <a href="#about" class="button"> Explore my journey ↓ </a>
             </div>
 
+            <!-- PROFILE PHOTO -->
+
             <div class="profile-photo">
               <img src="assets/saumya.jpg" alt="Saumya" />
             </div>
@@ -447,13 +741,16 @@
 
         <div class="about-grid">
           <div>
-            <h2 class="section-title">Just<br />getting started.</h2>
+            <h2 class="section-title">
+              Just<br />
+              getting started.
+            </h2>
           </div>
 
           <div class="about-text">
             <p>
-              I'm Saumya, a first-semester Polytechnic student with an interest
-              in computers and technology.
+              I'm <span class="highlight">Saumya</span>, a first-semester
+              Polytechnic student with an interest in computers and technology.
             </p>
 
             <p>
@@ -462,8 +759,8 @@
             </p>
 
             <p>
-              I believe that good developers are built one concept, one
-              experiment and one project at a time.
+              For me, every small program and every new concept is another step
+              towards becoming better at technology.
             </p>
           </div>
         </div>
@@ -482,9 +779,10 @@
 
             <div>
               <h3>Diploma in Polytechnic</h3>
+
               <p>
-                Currently studying and building fundamentals in computer science
-                and technology.
+                Currently pursuing my Polytechnic education and building a
+                strong foundation in technology.
               </p>
             </div>
           </div>
@@ -493,9 +791,10 @@
             <div class="year">Semester 01</div>
 
             <div>
-              <h3>Learning the Basics</h3>
+              <h3>Learning the Fundamentals</h3>
+
               <p>
-                Programming fundamentals, computer concepts, mathematics and
+                Programming basics, computer fundamentals, mathematics and
                 introductory web technologies.
               </p>
             </div>
@@ -508,30 +807,41 @@
       <section id="skills">
         <div class="section-label">04 / Skills</div>
 
-        <h2 class="section-title">What I'm<br />learning.</h2>
+        <h2 class="section-title">
+          What I'm<br />
+          learning.
+        </h2>
 
         <div class="skills-grid">
           <div class="skill">
             <div class="skill-number">01</div>
+
             <h3>HTML & CSS</h3>
+
             <p>Learning how websites are structured and styled.</p>
           </div>
 
           <div class="skill">
             <div class="skill-number">02</div>
+
             <h3>Python</h3>
+
             <p>Exploring programming logic, variables, loops and functions.</p>
           </div>
 
           <div class="skill">
             <div class="skill-number">03</div>
+
             <h3>C Programming</h3>
+
             <p>Understanding programming fundamentals through C.</p>
           </div>
 
           <div class="skill">
             <div class="skill-number">04</div>
+
             <h3>Git & GitHub</h3>
+
             <p>Learning how developers manage and share their code.</p>
           </div>
         </div>
@@ -542,7 +852,10 @@
       <section id="projects">
         <div class="section-label">05 / Projects</div>
 
-        <h2 class="section-title">Small steps.<br />Real projects.</h2>
+        <h2 class="section-title">
+          Small steps.<br />
+          Real projects.
+        </h2>
 
         <div class="projects">
           <div class="project">
@@ -550,6 +863,7 @@
 
             <div class="project-info">
               <h3>Simple Calculator</h3>
+
               <p>
                 A beginner calculator created while learning basic programming
                 concepts.
@@ -564,6 +878,7 @@
 
             <div class="project-info">
               <h3>My First Webpage</h3>
+
               <p>A simple webpage created using HTML and CSS.</p>
             </div>
 
@@ -575,10 +890,8 @@
 
             <div class="project-info">
               <h3>Programming Practice</h3>
-              <p>
-                Collection of beginner programs, patterns and logic-building
-                exercises.
-              </p>
+
+              <p>Beginner programs, patterns and logic-building exercises.</p>
             </div>
 
             <div class="project-arrow">↗</div>
@@ -591,18 +904,17 @@
       <section class="contact">
         <div class="section-label">06 / Contact</div>
 
-        <h2>Let's learn<br />something new.</h2>
+        <h2>
+          Let's learn<br />
+          something new.
+        </h2>
 
-        <p>
-          I'm always open to learning, collaborating and discovering new things.
-        </p>
+        <p>Always learning. Always curious.</p>
 
         <div class="socials">
-          <a href="https://github.com/saumya-developr" target="_blank">
-            GitHub ↗
-          </a>
+          <a href="YOUR_GITHUB_URL" target="_blank"> GitHub ↗ </a>
 
-          <a href="mailto:your-email@example.com"> Email ↗ </a>
+          <a href="mailto:YOUR_EMAIL"> Email ↗ </a>
         </div>
       </section>
     </main>
@@ -610,7 +922,7 @@
     <!-- FOOTER -->
 
     <footer>
-      <span>Saumya.</span>
+      <span> Saumya<span style="color: #e8894f">.</span> </span>
 
       <span> First Semester · Polytechnic </span>
     </footer>
