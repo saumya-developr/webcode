@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Saumya | Education Timeline</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #faf9f6;
+      color: #181818;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ---------- NAV ---------- */
+
+    nav {
+      width: 100%;
+      padding: 22px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5e1db;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #e8894f;
+    }
+
+    .back {
+      color: #666;
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+
+    .back:hover {
+      color: #e8894f;
+    }
+
+    /* ---------- INTRO ---------- */
+
+    .intro {
+      max-width: 1150px;
+      margin: auto;
+      padding: 100px 7% 85px;
+    }
+
+    .eyebrow {
+      color: #e8894f;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: clamp(50px, 8vw, 95px);
+      line-height: 0.94;
+      letter-spacing: -6px;
+      max-width: 900px;
+      margin-bottom: 30px;
+    }
+
+    h1 span {
+      color: #e8894f;
+    }
+
+    .intro p {
+      max-width: 650px;
+      font-size: 18px;
+      color: #666;
+    }
+
+    /* ---------- TIMELINE ---------- */
+
+    .timeline-section {
+      border-top: 1px solid #e5e1db;
+      padding: 100px 7% 120px;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    /* Vertical line */
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: #dcd7cf;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding-bottom: 85px;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      padding-right: 55px;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      padding-left: 55px;
+      text-align: left;
+    }
+
+    .dot {
+      position: absolute;
+      top: 5px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #e8894f;
+      border: 3px solid #faf9f6;
+      box-shadow: 0 0 0 1px #e8894f;
+      z-index: 2;
+    }
+
+    .timeline-item:nth-child(odd) .dot {
+      right: -7px;
+    }
+
+    .timeline-item:nth-child(even) .dot {
+      left: -7px;
+    }
+
+    .year {
+      color: #e8894f;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e2ddd5;
+      border-radius: 5px;
+      padding: 28px 30px;
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.07);
+    }
+
+    .card h2 {
+      font-size: 23px;
+      line-height: 1.2;
+      margin-bottom: 9px;
+    }
+
+    .institution {
+      font-size: 14px;
+      color: #444;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #666;
+      font-size: 15px;
+    }
+
+    .details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 17px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 20px;
+      background: #fff0e5;
+      color: #c56d37;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* Decision marker */
+    .decision {
+      margin-top: 18px;
+      padding: 12px 14px;
+      background: #f7f4ef;
+      border-left: 3px solid #e8894f;
+      color: #666;
+      font-size: 13px;
+    }
+
+    .decision strong {
+      color: #222;
+    }
+
+    /* Current stage */
+    .current .card {
+      border-color: #e8894f;
+    }
+
+    .current .dot {
+      background: #181818;
+      box-shadow: 0 0 0 1px #181818;
+    }
+
+    /* ---------- SUMMARY ---------- */
+
+    .summary {
+      max-width: 1000px;
+      margin: 0 auto 110px;
+      padding: 0 7%;
+    }
+
+    .summary-title {
+      color: #e8894f;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid #ddd8d0;
+      border-left: 1px solid #ddd8d0;
+    }
+
+    .stat {
+      padding: 28px;
+      border-right: 1px solid #ddd8d0;
+      border-bottom: 1px solid #ddd8d0;
+      background: #fff;
+    }
+
+    .stat-number {
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+      padding: 25px 7%;
+      border-top: 1px solid #ddd8d0;
+      display: flex;
+      justify-content: space-between;
+      color: #888;
+      font-size: 13px;
+    }
+
+    /* ---------- MOBILE ---------- */
+
+    @media (max-width: 700px) {
+
+      nav {
+        padding: 19px 6%;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .intro {
+        padding: 75px 6% 65px;
+      }
+
+      h1 {
+        font-size: 54px;
+        letter-spacing: -4px;
+      }
+
+      .intro p {
+        font-size: 16px;
+      }
+
+      .timeline-section {
+        padding: 70px 6% 80px;
+      }
+
+      /* Move line to left on mobile */
+      .timeline::before {
+        left: 9px;
+        transform: none;
+      }
+
+      .timeline-item,
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        width: 100%;
+        left: 0;
+        padding-left: 38px;
+        padding-right: 0;
+        text-align: left;
+        padding-bottom: 55px;
+      }
+
+      .timeline-item:nth-child(odd) .dot,
+      .timeline-item:nth-child(even) .dot {
+        left: 3px;
+        right: auto;
+      }
+
+      .card {
+        padding: 23px 20px;
+      }
+
+      .card h2 {
+        font-size: 20px;
+      }
+
+      .card p {
+        font-size: 14px;
+      }
+
+      .summary {
+        padding: 0 6%;
+        margin-bottom: 75px;
+      }
+
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        padding: 22px;
+      }
+
+      footer {
+        padding: 20px 6%;
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+      }
+    }
+    .timeline-item {
+  animation: timelineReveal 0.6s ease both;
+}
+
+.timeline-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.timeline-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.timeline-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.timeline-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.timeline-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.timeline-item:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+@keyframes timelineReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">
+      Saumya<span>.</span>
+    </div>
+
+    <a class="back" href="index.html">
+      ← Back to portfolio
+    </a>
+  </nav>
+
+
+  <!-- INTRO -->
+  <header class="intro">
+
+    <div class="eyebrow">
+      Education / Journey
+    </div>
+
+    <h1>
+      From school<br>
+      to <span>technology.</span>
+    </h1>
+
+    <p>
+      A timeline of Saumya's academic journey — from her
+      early school years at Kendriya Vidyalaya to discovering
+      computer science and strengthening her programming fundamentals.
+    </p>
+
+  </header>
+
+
+  <!-- TIMELINE -->
+  <section class="timeline-section">
+
+    <div class="timeline">
+
+
+      <!-- 2014–2024 -->
+      <article class="timeline-item">
+
+        <div class="dot"></div>
+
+        <div class="year">
+          2014 — 2024
+        </div>
+
+        <div class="card">
+
+          <h2>
+            School Years
+          </h2>
+
+          <div class="institution">
+            Kendriya Vidyalaya No. 1 Cantt, Shahjahanpur
+          </div>
+
+          <p>
+            Completed her school education and built a strong
+            academic foundation while exploring different
+            subjects and interests.
+          </p>
+
+          <div class="details">
+            <span class="tag">School Student</span>
+            <span class="tag">Foundation</span>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- CLASS 10 -->
+      <article class="timeline-item">
+
+        <div class="dot"></div>
+
+        <div class="year">
+          Class 10
+        </div>
+
+        <div class="card">
+
+          <h2>
+            10th Grade
+          </h2>
+
+          <div class="institution">
+            Kendriya Vidyalaya No. 1 Cantt, Shahjahanpur
+          </div>
+
+          <p>
+            Completed Class 10 with a score of
+            <strong>85%</strong>.
+          </p>
+
+          <div class="details">
+            <span class="tag">85%</span>
+            <span class="tag">Class 10</span>
+          </div>
+
+          <div class="decision">
+            <strong>JEECUP:</strong>
+            Appeared for the Polytechnic entrance examination,
+            scoring <strong>224 marks</strong> and securing a rank
+            of approximately <strong>15,000</strong>.
+            <br><br>
+            Despite the opportunity to enter Polytechnic after
+            Class 10, she chose to continue with Class 11 and 12
+            at Kendriya Vidyalaya.
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- CLASS 11 -->
+      <article class="timeline-item">
+
+        <div class="dot"></div>
+
+        <div class="year">
+          Class 11
+        </div>
+
+        <div class="card">
+
+          <h2>
+            Chose Computer Science
+          </h2>
+
+          <div class="institution">
+            Kendriya Vidyalaya No. 1 Cantt, Shahjahanpur
+          </div>
+
+          <p>
+            Continued her higher secondary education and chose
+            <strong>Computer Science</strong> as a subject,
+            beginning a more focused journey into programming
+            and technology.
+          </p>
+
+          <div class="details">
+            <span class="tag">Computer Science</span>
+            <span class="tag">Programming</span>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- CLASS 12 -->
+      <article class="timeline-item">
+
+        <div class="dot"></div>
+
+        <div class="year">
+          Class 12
+        </div>
+
+        <div class="card">
+
+          <h2>
+            Strengthening Programming
+          </h2>
+
+          <div class="institution">
+            Kendriya Vidyalaya No. 1 Cantt, Shahjahanpur
+          </div>
+
+          <p>
+            Completed Class 12 with <strong>75.6%</strong>.
+            During the two years of Computer Science studies,
+            the concepts of <strong>Python programming</strong>
+            were practiced and solidified.
+          </p>
+
+          <div class="details">
+            <span class="tag">75.6%</span>
+            <span class="tag">Python</span>
+            <span class="tag">Computer Science</span>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- AFTER 12 -->
+      <article class="timeline-item current">
+
+        <div class="dot"></div>
+
+        <div class="year">
+          After Class 12
+        </div>
+
+        <div class="card">
+
+          <h2>
+            A New Attempt
+          </h2>
+
+          <div class="institution">
+            JEECUP
+          </div>
+
+          <p>
+            After completing Class 12, appeared for JEECUP
+            once again and secured a rank of approximately
+            <strong>12,000</strong>.
+          </p>
+
+          <div class="details">
+            <span class="tag">JEECUP</span>
+            <span class="tag">Rank ~12,000</span>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- CURRENT -->
+      <article class="timeline-item current">
+
+        <div class="dot"></div>
+
+        <div class="year">
+          Present
+        </div>
+
+        <div class="card">
+
+          <h2>
+            Polytechnic Journey
+          </h2>
+
+          <div class="institution">
+            The next chapter
+          </div>
+
+          <p>
+            Entering the next stage with a foundation in
+            Computer Science and Python, ready to learn,
+            experiment and build more.
+          </p>
+
+          <div class="details">
+            <span class="tag">Polytechnic</span>
+            <span class="tag">Learning</span>
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- QUICK SUMMARY -->
+  <section class="summary">
+
+    <div class="summary-title">
+      A few milestones
+    </div>
+
+    <div class="summary-grid">
+
+      <div class="stat">
+        <div class="stat-number">85%</div>
+        <div class="stat-label">
+          Class 10 score
+        </div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-number">75.6%</div>
+        <div class="stat-label">
+          Class 12 score
+        </div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-number">~12K</div>
+        <div class="stat-label">
+          Latest JEECUP rank
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <span>
+      Saumya<span style="color:#e8894f;">.</span>
+    </span>
+
+    <span>
+      Education Timeline
+    </span>
+
+  </footer>
+
+</body>
+</html>
