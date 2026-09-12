@@ -1,30 +1,30 @@
 # 🚀 Saumya Mishra - Personal Portfolio
 
-Welcome to my personal portfolio repository! This website showcases my journey as a student, programmer, and tech enthusiast. 
+Welcome to my personal portfolio repository! This website showcases my journey as a computer science student, programmer, and tech enthusiast. 
 
-✨ **Live Demo:** You can view the live project hosted on Vercel at [webcode-five.vercel.app](https://webcode-five.vercel.app/).
+✨ **Live Demo:** You can view the live project hosted on Vercel at [webcode-five.vercel.app](https://vercel.app).
 
 ---
 
 ## 🧑‍💻 About Me
-Hi there! My name is **Saumya Mishra**. I am a Class 11th PCM (Physics, Chemistry, Mathematics) student with a Computer Science major at **KV1 Cantt Shahjahanpur**. 
+Hi there! My name is **Saumya Mishra**. I am currently a **1st Semester student** pursuing a Diploma in **Computer Science and Engineering** at **Rajkiya Polytechnic Shahjahanpur (Government Polytechnic SPN)**. 
 
 * 🎹 **Hobbies:** Singing, coding, solving math problems, and project planning.
-* 🏆 **Achievements:** Government Polytechnic SPN (CS branch) selection, and a school-level bronze medal in racing.
+* 🏆 **Achievements:** Successfully secured admission into the CS branch at Rajkiya Polytechnic, and earned a school-level bronze medal in racing.
 
 ---
 
 ## 🛠️ Skills & Technologies
-* **Programming Languages:** Python (Core curriculum focus & advanced scripting)
+* **Programming & Logic:** Python (Core programming, pattern logic, and custom scripting)
 * **Web Development:** HTML5, CSS3, JavaScript
-* **Tools & Platforms:** Termux (Android CLI), Git, GitHub, Vercel
+* **Tools & Environments:** Termux (Android CLI development), Git, GitHub, Vercel
 
 ---
 
-## 📂 Featured Python Projects
-Some of my initial programming highlights include:
-* 🎂 **Birthday Program:** An interactive Python script built for celebrating birthdays.
-* 📐 **Pattern Programs:** Custom logic scripts utilizing loops to print complex design patterns.
+## 📂 Featured Projects
+* 🎂 **Birthday Program:** An interactive Python script built for celebrating special occasions.
+* 📐 **Pattern Programs:** Logic-based scripts utilizing nested loops to output intricate design patterns.
+* 🌐 **Portfolio Website:** This responsive frontend space built to display my up-to-date academic achievements and projects.
 
 ---
 
@@ -41,9 +41,9 @@ If you want to clone this repository and test the website on your local machine,
    cd YOUR_REPO_NAME
    ```
 3. **Open the project:**
-   Simply open the `index.html` (or `base.html`) file in any web browser.
+   Simply open the main `index.html` file in any web browser.
 
 ---
 
 ## 🌐 Deployment
-This website is automatically deployed using **Vercel** integration. Any changes pushed to the `main` branch will automatically update the live site.
+This website is integrated and deployed using **Vercel**. Any changes pushed to the `main` branch will trigger an automatic production deployment.
